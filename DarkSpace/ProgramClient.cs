@@ -5,7 +5,7 @@ namespace DarkSpace
 {
     internal class ProgramClient
     {
-        public static void MainRun()
+        public static void ClientRun()
         {
             System.Runtime.InteropServices.Marshal.PrelinkAll(typeof(Program));
             Console.BackgroundColor = ConsoleColor.Black;

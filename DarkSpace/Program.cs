@@ -58,7 +58,7 @@ namespace DarkSpace
 							string path = args[i];
 						}
 					}
-					ProgramClient.MainRun();
+					ProgramClient.ClientRun();
 				}
 				catch (Exception ex)
 				{
