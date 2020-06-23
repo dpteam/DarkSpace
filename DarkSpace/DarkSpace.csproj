@@ -48,6 +48,7 @@
     <Reference Include="CommandLine, Version=2.8.0.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
       <HintPath>..\packages\CommandLineParser.2.8.0\lib\net461\CommandLine.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="SpeechLib, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -63,9 +64,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigManager.cs" />
+    <Compile Include="Enums\Currency.cs" />
+    <Compile Include="Enums\Elements.cs" />
     <Compile Include="Enums\GalaxyTypes.cs" />
     <Compile Include="Enums\Items.cs" />
     <Compile Include="Local.cs" />
+    <Compile Include="ProgramClient.cs" />
+    <Compile Include="Objects\SpaceShips.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Program_1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
