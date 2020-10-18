@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkSpace", "DarkSpace\DarkSpace.csproj", "{7BCA20E3-5472-45C1-91DD-B551CAB678E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DarkSpace", "DarkSpace\DarkSpace.csproj", "{7BCA20E3-5472-45C1-91DD-B551CAB678E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

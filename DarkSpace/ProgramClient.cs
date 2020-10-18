@@ -1,5 +1,4 @@
-﻿using SpeechLib;
-using System;
+﻿using System;
 
 namespace DarkSpace
 {
@@ -9,7 +8,6 @@ namespace DarkSpace
         {
             System.Runtime.InteropServices.Marshal.PrelinkAll(typeof(Program));
             Console.BackgroundColor = ConsoleColor.Black;
-            SpVoice sp2 = new SpVoice();
 
             /*
             string[] gangNames = { "Alpha", "Beta", "Omega" };
@@ -50,7 +48,6 @@ namespace DarkSpace
             Console.WriteLine("");
 
             // Welcome
-            sp2.Speak(Local.strWelcome, SpeechVoiceSpeakFlags.SVSFlagsAsync);
             Console.WriteLine(Local.strWelcome);
 
             // Seperator
