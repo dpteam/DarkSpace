@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Threading;
+using System.Windows.Media.Animation;
+using DarkSpace.Config;
 
 namespace DarkSpace
 {
@@ -7,86 +11,149 @@ namespace DarkSpace
         public static void ClientRun()
         {
             System.Runtime.InteropServices.Marshal.PrelinkAll(typeof(Program));
+
+            Process currentProcess = Process.GetCurrentProcess();
+            currentProcess.PriorityClass = ProcessPriorityClass.High;
+
+            string cfgKernelVersionStage = "__0lpha__";
+            string cfgKernelVersion = "1.0.2";
+            string cfgSaveMetaVersion = "0.0.1";
+            string cfgSaveDataPlayable = "0";
+
             Console.BackgroundColor = ConsoleColor.Black;
-
-            /*
-            string[] gangNames = { "Alpha", "Beta", "Omega" };
-
-            foreach (string gangNameElement in gangNames) {
-                Console.WriteLine("Gang: " + gangNameElement);
-            }
-            */
 
             //PrintStringFatalError("Kernel Panic");
             //PrintStringFatalError("0xFFFFFFFF: No CRC[Code-Reproduction-Code]");
 
-            bool __KERNEL_DEBUG_MODE = true;
-            if (__KERNEL_DEBUG_MODE == true)
+            Trace.AutoFlush = true;
+            Trace.Listeners.Clear();
+            Trace.Listeners.Add(new ConsoleTraceListener());
+            Trace.Listeners.Add(new TextWriterTraceListener(System.IO.Path.GetFileNameWithoutExtension(typeof(Program).Assembly.GetName().Name) + ".log"));
+
+            if (ConfigManager.__KERNEL_DEBUG_MODE == true)
             {
-                //sp2.Speak(Local.strDbgModeOn, SpeechVoiceSpeakFlags.SVSFlagsAsync);
                 Print("[INFO]" + Local.strDbgModeOn);
             }
 
+            string IniFileName = System.IO.Path.GetFileNameWithoutExtension(typeof(Program).Assembly.GetName().Name) + ".ini";
+
+            IniFile INI = new IniFile(IniFileName);
+            if (System.IO.File.Exists(IniFileName))
+            {
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Trace.WriteLine("[DEBUG] Конфигурционный файл найден");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Trace.WriteLine("[ERROR] Конфигурционный файл не найден, идет создание...");
+                INI.Write("Kernel", "VersionStage", cfgKernelVersionStage);
+                INI.Write("Kernel", "Version", cfgKernelVersion);
+                INI.Write("SaveMeta", "Version", cfgSaveMetaVersion);
+                INI.Write("SaveData", "Playable", cfgSaveDataPlayable);
+                Console.ReadKey();
+            }
+
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("____________________________________________________________________________________________");
+            Trace.WriteLine("____________________________________________________________________________________________");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("   /$$$$$$$                      /$$        /$$$$$$                                         ");
-            Console.WriteLine("  | $$__  $$                    | $$       /$$__  $$                                        ");
-            Console.WriteLine("  | $$  \\ $$  /$$$$$$   /$$$$$$ | $$   /$$| $$  \\__/  /$$$$$$   /$$$$$$   /$$$$$$$  /$$$$$$ ");
-            Console.WriteLine("  | $$  | $$ |____  $$ /$$__  $$| $$  /$$/|  $$$$$$  /$$__  $$ |____  $$ /$$_____/ /$$__  $$");
-            Console.WriteLine("  | $$  | $$  /$$$$$$$| $$  \\__/| $$$$$$/  \\____  $$| $$  \\ $$  /$$$$$$$| $$      | $$$$$$$$");
-            Console.WriteLine("  | $$  | $$ /$$__  $$| $$      | $$_  $$  /$$  \\ $$| $$  | $$ /$$__  $$| $$      | $$_____/");
-            Console.WriteLine("  | $$$$$$$/|  $$$$$$$| $$      | $$ \\  $$|  $$$$$$/| $$$$$$$/|  $$$$$$$|  $$$$$$$|  $$$$$$$");
-            Console.WriteLine("  |_______/  \\_______/|__/      |__/  \\__/ \\______/ | $$____/  \\_______/ \\_______/ \\_______/");
-            Console.WriteLine("                                                    | $$                                    ");
-            Console.WriteLine("                                                    | $$                                    ");
-            Console.WriteLine("                                                    |__/                                    ");
+            Trace.WriteLine("   /$$$$$$$                      /$$        /$$$$$$                                         ");
+            Trace.WriteLine("  | $$__  $$                    | $$       /$$__  $$                                        ");
+            Trace.WriteLine("  | $$  \\ $$  /$$$$$$   /$$$$$$ | $$   /$$| $$  \\__/  /$$$$$$   /$$$$$$   /$$$$$$$  /$$$$$$ ");
+            Trace.WriteLine("  | $$  | $$ |____  $$ /$$__  $$| $$  /$$/|  $$$$$$  /$$__  $$ |____  $$ /$$_____/ /$$__  $$");
+            Trace.WriteLine("  | $$  | $$  /$$$$$$$| $$  \\__/| $$$$$$/  \\____  $$| $$  \\ $$  /$$$$$$$| $$      | $$$$$$$$");
+            Trace.WriteLine("  | $$  | $$ /$$__  $$| $$      | $$_  $$  /$$  \\ $$| $$  | $$ /$$__  $$| $$      | $$_____/");
+            Trace.WriteLine("  | $$$$$$$/|  $$$$$$$| $$      | $$ \\  $$|  $$$$$$/| $$$$$$$/|  $$$$$$$|  $$$$$$$|  $$$$$$$");
+            Trace.WriteLine("  |_______/  \\_______/|__/      |__/  \\__/ \\______/ | $$____/  \\_______/ \\_______/ \\_______/");
+            Trace.WriteLine("                                                    | $$                                    ");
+            Trace.WriteLine("                                                    | $$                                    ");
+            Trace.WriteLine("                                                    |__/                                    ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("____________________________________________________________________________________________");
+            Trace.WriteLine("____________________________________________________________________________________________");
 
             // Seperator
-            Console.WriteLine("");
+            Trace.WriteLine("");
 
             // Welcome
-            Console.WriteLine(Local.strWelcome);
+            Trace.WriteLine(Local.strWelcome);
 
             // Seperator
-            Console.WriteLine("");
+            Trace.WriteLine("");
 
             // Selector
             int menuSelectorNum;
-            Console.WriteLine(Local.strSelector);
-            Console.WriteLine(Local.strSelectorNewGame);
-            Console.WriteLine(Local.strSelectorExit);
+            Trace.WriteLine(Local.strSelector);
+            Trace.WriteLine(Local.strSelectorNewGame);
+            Trace.WriteLine(Local.strSelectorLoadGame);
+            Trace.WriteLine(Local.strSelectorExit);
             menuSelectorNum = Convert.ToInt32(Console.ReadLine());
 
             if (menuSelectorNum == 1)
             {
                 Console.Clear();
-                Console.WriteLine("Вы начали новую игру");
+                try
+                {
+                    //Trace.WriteLine("Вы начали новую игру");
+                    Console.ReadKey();
+                    Environment.Exit(0);
+                }
+                catch(Exception ex)
+                {
+                    PrintStringFatalError(ex.ToString());
+                    Environment.Exit(0);
+                }
             }
             if (menuSelectorNum == 2)
             {
-                System.Diagnostics.Process.GetCurrentProcess().Kill();
+                if (cfgKernelVersionStage == INI.ReadINI("Kernel", "VersionStage"))
+                if (cfgKernelVersion == INI.ReadINI("Kernel", "Version"))
+                if (cfgSaveMetaVersion == INI.ReadINI("SaveMeta", "Version"))
+                if (cfgSaveDataPlayable != INI.ReadINI("SaveData", "Playable"))
+                {
+                    try
+                    {
+                        Console.ReadKey();
+                        Environment.Exit(0);
+                    }
+                    catch (Exception ex)
+                    {
+                        PrintStringFatalError(Local.strLoadGameFailed);
+                        Environment.Exit(0);
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            if (menuSelectorNum == 3)
+            {
+                Environment.Exit(0);
+                //System.Diagnostics.Process.GetCurrentProcess().Kill();
             }
             else
             {
                 PrintStringFatalError(Local.strUnknownFatalError);
+                Console.ReadKey();
+                Environment.Exit(0);
             }
 
             Console.ReadKey();
+            Environment.Exit(0);
         }
 
         public static void Print(string __string)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(__string);
+            Trace.WriteLine(__string);
         }
 
         public static void PrintStringFatalError(string str)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("[FATAL] " + str);
+            Trace.WriteLine("[FATAL] " + str);
+            Console.ReadKey();
+            Environment.Exit(0);
         }
 
     }
