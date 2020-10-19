@@ -25,16 +25,9 @@ namespace DarkSpace
     .Add("bar", () => Console.WriteLine("bar selected"));
 menu.Display();*/
 
-//string GroupID = INI.ReadINI("Kernel", "Version");
-
 /*string localName;
 localName = Thread.CurrentThread.CurrentCulture.Name;
 if(localName == "ru-RU")
 {*/
 
 //  "MISSINGNO"
-
-
-// 
-//     string GroupID = INI.ReadINI("Kernel", "Version");
-//}

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DarkSpace.Objects
 {
-    public class SpaceShip
+    public class BlackHole
     {
         // Informatic
-        public string ShipName = strDefaultShipName;
+        public string BlackHoleName = strDefaultBlackHoleName;
 
         // Psychic
         public int Health = 0;

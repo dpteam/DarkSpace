@@ -15,6 +15,14 @@
 
         public static string strLoadGameFailed = "Не удалось загрузить игру...";
 
+        public static string strDefaultShipName = "Посейдон";
+
+        public static string strDefaultBlackHoleName = "Дыра твоей бывшей";
+
+        public static string strDefaulStarName = "Солнышко";
+
+        public static string strDefaulPlanetName = "Жопа";
+
         public static string strUnknownFatalError = "Произошел троллинг. Программа будет закрыта.";
     }
 }

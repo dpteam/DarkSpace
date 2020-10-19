@@ -112,10 +112,12 @@ namespace DarkSpace
                 {
                     try
                     {
+                        Console.Clear();
+                        
                         Console.ReadKey();
                         Environment.Exit(0);
                     }
-                    catch (Exception ex)
+                    catch
                     {
                         PrintStringFatalError(Local.strLoadGameFailed);
                         Environment.Exit(0);
