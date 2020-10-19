@@ -3,30 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls.Ribbon.Primitives;
 
 namespace DarkSpace.Objects
 {
     public class BlackHole
     {
-        // Informatic
         public string BlackHoleName = Local.strDefaultBlackHoleName;
-
-        // Psychic
-        public int Health = 0;
-        public int maxHealth = 0;
-
-        public int Shield = 0;
-        public int maxShield = 0;
-
-        public bool isLive = true;
-        public bool shieldActive = true;
-
-        public float Speed = 0f;
-
-        // Economic
-        public bool Wanted = false;
-
-        //TODO: Move to player...
-        //public int penalty;
+        //public int objClass = _star_BlackHole; // Класс тела
     }
 }
