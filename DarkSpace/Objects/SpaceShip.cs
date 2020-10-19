@@ -9,7 +9,7 @@ namespace DarkSpace.Objects
     public class SpaceShip
     {
         // Informatic
-        public string ShipName = strDefaultShipName;
+        public string ShipName = Local.strDefaultShipName;
 
         // Psychic
         public int Health = 0;

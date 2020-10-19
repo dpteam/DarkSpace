@@ -9,7 +9,7 @@ namespace DarkSpace.Objects
     public class BlackHole
     {
         // Informatic
-        public string BlackHoleName = strDefaultBlackHoleName;
+        public string BlackHoleName = Local.strDefaultBlackHoleName;
 
         // Psychic
         public int Health = 0;
