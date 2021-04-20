@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading;
-using System.Windows.Media.Animation;
 using DarkSpace.Config;
 
 namespace DarkSpace
@@ -83,12 +81,30 @@ namespace DarkSpace
             // Selector
             int menuSelectorNum;
             Trace.WriteLine(Local.strSelector);
+            Trace.WriteLine(Local.strSelectorDebugNewGame);
             Trace.WriteLine(Local.strSelectorNewGame);
             Trace.WriteLine(Local.strSelectorLoadGame);
             Trace.WriteLine(Local.strSelectorExit);
             menuSelectorNum = Convert.ToInt32(Console.ReadLine());
 
             if (menuSelectorNum == 1)
+            {
+                Console.Clear();
+                try
+                {
+                    /*
+                     * Здесь всякая тестовая дичь
+                    */
+                    Console.ReadKey();
+                    Environment.Exit(0);
+                }
+                catch(Exception ex)
+                {
+                    PrintStringFatalError(ex.ToString());
+                    Environment.Exit(0);
+                }
+            }
+            if (menuSelectorNum == 2)
             {
                 Console.Clear();
                 try
@@ -103,7 +119,7 @@ namespace DarkSpace
                     Environment.Exit(0);
                 }
             }
-            if (menuSelectorNum == 2)
+            if (menuSelectorNum == 3)
             {
                 if (cfgKernelVersionStage == INI.ReadINI("Kernel", "VersionStage"))
                 if (cfgKernelVersion == INI.ReadINI("Kernel", "Version"))
@@ -128,7 +144,7 @@ namespace DarkSpace
 
                 }
             }
-            if (menuSelectorNum == 3)
+            if (menuSelectorNum == 4)
             {
                 Environment.Exit(0);
                 //System.Diagnostics.Process.GetCurrentProcess().Kill();

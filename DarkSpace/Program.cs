@@ -1,7 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Runtime.CompilerServices;
-using System.Windows;
 
 namespace DarkSpace
 {
@@ -69,7 +67,7 @@ namespace DarkSpace
 							streamWriter.WriteLine(ex);
 							streamWriter.WriteLine("");
 						}
-						MessageBox.Show(ex.ToString(), "DarkSpace: Error");
+						//Console.Write("DarkSpace: Error" + ex.ToString());
 					}
 					catch
 					{

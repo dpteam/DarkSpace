@@ -9,6 +9,7 @@
         public static string strWelcome = "Добро пожаловать в нашу пездатую игору.";
         
         public static string strSelector = "Выберите опцию:";
+        public static string strSelectorDebugNewGame = "0. Начать новую игру (Отладочный Режим)";
         public static string strSelectorNewGame = "1. Начать новую игру";
         public static string strSelectorLoadGame = "2. Загрузить игру";
         public static string strSelectorExit = "3. Выйти";

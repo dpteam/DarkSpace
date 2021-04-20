@@ -9,6 +9,10 @@ namespace DarkSpace.Enums
         enum Items
         {
             // Untradeable
+            AIR, // Содержимое пачки чипсов разработчика
+            EARTH, // Как тебе на вкус сладкий хлебушек? Как.. 
+            FIRE, // Твоя мамка
+            WATER, // Водка
             ETHER,
             STONE,
             GROUND,
@@ -16,5 +20,6 @@ namespace DarkSpace.Enums
             // Tradeable
             URANUS, // Уран
             TOPLIVE // Ядерное топливо
-        }
+
+    }
 }

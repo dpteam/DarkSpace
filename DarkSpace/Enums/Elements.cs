@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 namespace DarkSpace.Enums
 {
     enum Elements
-    {
+    {/*
         AIR, // Содержимое пачки чипсов разработчика
         EARTH, // Как тебе на вкус сладкий хлебушек? Как.. 
         FIRE, // Твоя мамка
-        WATER // Водка
+        WATER, // Водка
+        // Дополнительные 
+        */
     }
 }
