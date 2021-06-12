@@ -11,7 +11,7 @@ namespace DarkSpace.Helpers
 		public static int NextNumber()
 		{
 			if (r == null)
-				Seed();
+			Seed();
 
 			return r.Next();
 		}
@@ -19,7 +19,7 @@ namespace DarkSpace.Helpers
 		public static int NextNumber(int ceiling)
 		{
 			if (r == null)
-				Seed();
+			Seed();
 
 			return r.Next(ceiling);
 		}

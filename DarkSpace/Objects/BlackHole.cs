@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DarkSpace.Objects
+﻿namespace DarkSpace.Objects
 {
-    public class BlackHole
+    class BlackHole
     {
-        public string BlackHoleName = Local.strDefaultBlackHoleName;
+        public string BlackHoleName { get; set; } = Local.strDefaultBlackHoleName;
         //public int objClass = _star_BlackHole; // Класс тела
     }
 }

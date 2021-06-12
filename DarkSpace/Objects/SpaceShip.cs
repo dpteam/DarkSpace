@@ -1,30 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DarkSpace.Objects
+﻿namespace DarkSpace.Objects
 {
-    public class SpaceShip
+    class SpaceShip
     {
         // Informatic
-        public string ShipName = Local.strDefaultShipName;
+        public string ShipName { get; set; } = Local.strDefaultShipName;
 
-        // Psychic
-        public int Health = 0;
-        public int maxHealth = 0;
+        // Physic
+        public int Health { get; set; } = 0;
+        public int MaxHealth { get; set; } = 0;
 
-        public int Shield = 0;
-        public int maxShield = 0;
+        public int Shield { get; set; } = 0;
+        public int MaxShield { get; set; } = 0;
 
-        public bool isLive = true;
-        public bool shieldActive = true;
+        public bool IsLive { get; set; } = true;
+        public bool ShieldActive { get; set; } = true;
 
-        public float Speed = 0f;
+        public float Speed { get; set; } = 0f;
 
         // Economic
-        public bool Wanted = false;
+        public bool Wanted { get; set; } = false;
 
         //TODO: Move to player...
         //public int penalty;

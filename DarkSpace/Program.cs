@@ -3,8 +3,8 @@ using System.IO;
 
 namespace DarkSpace
 {
-	internal class Program {
-
+	internal class Program
+	{
 		[STAThread]
 		private static void Main(string[] args)
 		{

@@ -2,8 +2,8 @@
 
 namespace DarkSpace.Config
 {
-    class ConfigManager
-    {
-        public static bool __KERNEL_DEBUG_MODE = true;
-    }
+	class ConfigManager
+	{
+		public static bool __KERNEL_DEBUG_MODE = true;
+	}
 }
