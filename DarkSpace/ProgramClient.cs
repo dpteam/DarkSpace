@@ -35,7 +35,7 @@ namespace DarkSpace
 
 			string IniFileName = System.IO.Path.GetFileNameWithoutExtension(typeof(Program).Assembly.GetName().Name) + ".ini";
 
-			IniFile INI = new IniFile(IniFileName);
+			IniFile INI = new(IniFileName);
 			if (System.IO.File.Exists(IniFileName))
 			{
 				Console.ForegroundColor = ConsoleColor.DarkBlue;

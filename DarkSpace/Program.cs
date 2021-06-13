@@ -61,14 +61,14 @@ namespace DarkSpace
 				{
 					try
 					{
-						using (StreamWriter streamWriter = new StreamWriter("crash_" + DateTime.Now + "_ex.log", append: true))
-						{
-							streamWriter.WriteLine(DateTime.Now);
-							streamWriter.WriteLine(ex);
-							streamWriter.WriteLine("");
-						}
-						//Console.Write("DarkSpace: Error" + ex.ToString());
-					}
+                        using StreamWriter streamWriter = new("crash_" + DateTime.Now + "_ex.log", append: true);
+
+                        streamWriter.WriteLine(DateTime.Now);
+                        streamWriter.WriteLine(ex);
+                        streamWriter.WriteLine("");
+
+                        //Console.Write("DarkSpace: Error" + ex.ToString());
+                    }
 					catch
 					{
 					}
