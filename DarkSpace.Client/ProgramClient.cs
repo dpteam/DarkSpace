@@ -14,8 +14,8 @@ namespace DarkSpace
 			currentProcess.PriorityClass = ProcessPriorityClass.High;
 
 			string cfgKernelVersionStage = "__0lpha__";
-			string cfgKernelVersion = "1.0.2";
-			string cfgSaveMetaVersion = "0.0.1";
+			string cfgKernelVersion = "1.0.3";
+			string cfgSaveMetaVersion = "0.0.2";
 			string cfgSaveDataPlayable = "0";
 
 			Console.BackgroundColor = ConsoleColor.Black;
@@ -36,9 +36,9 @@ namespace DarkSpace
 				Print("[INFO]" + Local.strDbgModeOn);
 			}
 
-			string IniFileName = System.IO.Path.GetFileNameWithoutExtension(typeof(Program).Assembly.GetName().Name) + ".ini";
+			//string IniFileName = System.IO.Path.GetFileNameWithoutExtension(typeof(Program).Assembly.GetName().Name) + ".ini";
 
-			IniFile INI = new(IniFileName);
+			/*IniFile INI = new(IniFileName);
 			if (System.IO.File.Exists(IniFileName))
 			{
 				Console.ForegroundColor = ConsoleColor.DarkBlue;
@@ -53,7 +53,7 @@ namespace DarkSpace
 				INI.Write("SaveMeta", "Version", cfgSaveMetaVersion);
 				INI.Write("SaveData", "Playable", cfgSaveDataPlayable);
 				Console.ReadKey();
-			}
+			}*/
 
 			Console.ForegroundColor = ConsoleColor.White;
 			Trace.WriteLine("____________________________________________________________________________________________");
@@ -124,10 +124,10 @@ namespace DarkSpace
 			}
 			if (menuSelectorNum == 3)
 			{
-				if (cfgKernelVersionStage == INI.ReadINI("Kernel", "VersionStage"))
-				if (cfgKernelVersion == INI.ReadINI("Kernel", "Version"))
-				if (cfgSaveMetaVersion == INI.ReadINI("SaveMeta", "Version"))
-				if (cfgSaveDataPlayable != INI.ReadINI("SaveData", "Playable"))
+				//if (cfgKernelVersionStage == INI.ReadINI("Kernel", "VersionStage"))
+				//if (cfgKernelVersion == INI.ReadINI("Kernel", "Version"))
+				//if (cfgSaveMetaVersion == INI.ReadINI("SaveMeta", "Version"))
+				//if (cfgSaveDataPlayable != INI.ReadINI("SaveData", "Playable"))
 				{
 					try
 					{
@@ -142,10 +142,10 @@ namespace DarkSpace
 						Environment.Exit(0);
 					}
 				}
-				else
+				/*else
 				{
 
-				}
+				}*/
 			}
 			if (menuSelectorNum == 4)
 			{
