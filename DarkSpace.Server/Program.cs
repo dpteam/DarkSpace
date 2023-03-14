@@ -6,6 +6,7 @@ namespace DarkSpace
     {
         static void Main()
         {
+            var ServerPort = 20042;
             Trace.AutoFlush = true;
             Trace.Listeners.Clear();
             Trace.Listeners.Add(new ConsoleTraceListener());
@@ -14,7 +15,7 @@ namespace DarkSpace
             currentProcess.PriorityClass = ProcessPriorityClass.High;
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
-            Trace.WriteLine("Hello, World!");
+            Trace.WriteLine($"Server started at port {ServerPort}");
         }
     }
 }
