@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DarkSpace.Helpers
+﻿namespace DarkSpace.Helpers
 {
 	internal static class RandomHelper
 	{

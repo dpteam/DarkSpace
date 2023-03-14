@@ -20,13 +20,16 @@ namespace DarkSpace
 
 			Console.BackgroundColor = ConsoleColor.Black;
 
-			//PrintStringFatalError("Kernel Panic");
-			//PrintStringFatalError("0xFFFFFFFF: No CRC[Code-Reproduction-Code]");
+			if (ConfigManager.__KERNEL_NOT_FOUND == true)
+			{
+				PrintStringFatalError("Kernel Panic");
+				PrintStringFatalError("0xFFFFFFFF: No CRC[Code-Reproduction-Code]");
+			}
 
 			Trace.AutoFlush = true;
 			Trace.Listeners.Clear();
 			Trace.Listeners.Add(new ConsoleTraceListener());
-			Trace.Listeners.Add(new TextWriterTraceListener(System.IO.Path.GetFileNameWithoutExtension(typeof(Program).Assembly.GetName().Name) + ".log"));
+			Trace.Listeners.Add(new TextWriterTraceListener(System.IO.Path.GetFileNameWithoutExtension(typeof(Program).Assembly.GetName().Name) + "-client.log"));
 
 			if (ConfigManager.__KERNEL_DEBUG_MODE == true)
 			{

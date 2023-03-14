@@ -1,4 +1,4 @@
-﻿namespace DarkSpace.Objects
+﻿namespace DarkSpace.UniverseObjects
 {
     class SpaceShip
     {

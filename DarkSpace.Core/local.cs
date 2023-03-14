@@ -1,6 +1,6 @@
 ﻿namespace DarkSpace
 {
-	internal class Local
+	public class Local
 	{
 		public static string strDefault = "[LOCAL] Этой строки не существует...";
 

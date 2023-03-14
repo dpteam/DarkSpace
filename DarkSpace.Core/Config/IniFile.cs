@@ -7,14 +7,14 @@ using System.Text;
 
 namespace DarkSpace.Config
 {
-	class IniFile
+	public partial class IniFile
 	{
-		string Path; //Имя файла.
+        readonly string Path; //Имя файла.
 
-		[DllImport("kernel32")] // Подключаем kernel32.dll и описываем его функцию WritePrivateProfilesString
-		static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
+		[LibraryImport("kernel32", EntryPoint = "WritePrivateProfileStringW", StringMarshalling = StringMarshalling.Utf16)] // Подключаем kernel32.dll и описываем его функцию WritePrivateProfilesString
+		public static partial long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
 
-		[DllImport("kernel32")] // Еще раз подключаем kernel32.dll, а теперь описываем функцию GetPrivateProfileString
+		[DllImport("kernel32", CharSet = CharSet.Unicode)] // Еще раз подключаем kernel32.dll, а теперь описываем функцию GetPrivateProfileString
 		static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
 
 		// С помощью конструктора записываем пусть до файла и его имя.
@@ -27,7 +27,7 @@ namespace DarkSpace.Config
 		public string ReadINI(string Section, string Key)
 		{
 			var RetVal = new StringBuilder(255);
-			GetPrivateProfileString(Section, Key, "", RetVal, 255, Path);
+            _ = GetPrivateProfileString(Section, Key, "", RetVal, 255, Path);
 			return RetVal.ToString();
 		}
 		//Записываем в ini-файл. Запись происходит в выбранную секцию в выбранный ключ.
